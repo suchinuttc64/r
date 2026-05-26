@@ -99,3 +99,20 @@ function updateDashboard() {
         if (finalBtn) finalBtn.style.display = "block";
     }
 }
+
+// --- พี่ตู้เย็น: ระบบพี่เลี้ยงประจำห้องแล็บ COOL TECH QUEST ---
+// ฟังก์ชันนี้จะคอยตรวจสอบว่าปุ่มพี่ตู้เย็นถูกสร้างหรือยัง ถ้ายังให้สร้างให้โดยอัตโนมัติ
+function initAiMentor() {
+    if (!document.querySelector('.ai-mentor-btn')) {
+        const btn = document.createElement('div');
+        btn.className = 'ai-mentor-btn';
+        btn.innerHTML = '🤖 ปรึกษาพี่ตู้เย็น';
+        btn.onclick = function() {
+            window.open('URL_GEM_ของอาจารย์', '_blank'); // อย่าลืมแก้ URL ตรงนี้ครับ!
+        };
+        document.body.appendChild(btn);
+    }
+}
+
+// เรียกใช้เมื่อหน้าเว็บโหลดเสร็จสมบูรณ์
+document.addEventListener('DOMContentLoaded', initAiMentor);
