@@ -102,39 +102,17 @@ function updateDashboard() {
 
 // --- พี่ตู้เย็น: ระบบพี่เลี้ยงประจำห้องแล็บ COOL TECH QUEST ---
 // ฟังก์ชันนี้จะคอยตรวจสอบว่าปุ่มพี่ตู้เย็นถูกสร้างหรือยัง ถ้ายังให้สร้างให้โดยอัตโนมัติ
-//function initAiMentor() {
-  //  if (!document.querySelector('.ai-mentor-btn')) {
-  //      const btn = document.createElement('div');
-   //     btn.className = 'ai-mentor-btn';
-   //     btn.innerHTML = '🤖 ปรึกษาพี่ตู้เย็น';
-  //      btn.onclick = function() {
-    //        window.open('https://gemini.google.com/share/89a2551adc9e', '_blank'); // อย่าลืมแก้ URL ตรงนี้ครับ!
-   //     };
-     //   document.body.appendChild(btn);
 function initAiMentor() {
-    // 1. สร้างปุ่มลอย
     if (!document.querySelector('.ai-mentor-btn')) {
         const btn = document.createElement('div');
         btn.className = 'ai-mentor-btn';
-        btn.innerHTML = '🤖 ปรึกษาพี่ตู้เย็น';
-        btn.onclick = () => document.getElementById('aiModal').style.display = "block";
+   //     btn.innerHTML = '🤖 ปรึกษาพี่ตู้เย็น';
+        btn.innerHTML = '<img src="images/fridge-bot.png" alt="พี่ตู้เย็น" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">';
+        btn.onclick = function() {
+            window.open('https://gemini.google.com/share/89a2551adc9e', '_blank'); // อย่าลืมแก้ URL ตรงนี้ครับ!
+        };
         document.body.appendChild(btn);
     }
-    
-    // 2. สร้างโครงสร้าง Modal ถ้ายังไม่มี
-    if (!document.getElementById('aiModal')) {
-        const modal = document.createElement('div');
-        modal.id = 'aiModal';
-        modal.className = 'ai-modal';
-        modal.innerHTML = `
-            <div class="ai-modal-content">
-                <span class="ai-modal-close" onclick="document.getElementById('aiModal').style.display='none'">&times;</span>
-                <iframe src="https://gemini.google.com/share/89a2551adc9e"></iframe>
-            </div>
-        `;
-        document.body.appendChild(modal);
-    }
 }
-
 // เรียกใช้เมื่อหน้าเว็บโหลดเสร็จสมบูรณ์
 document.addEventListener('DOMContentLoaded', initAiMentor);
