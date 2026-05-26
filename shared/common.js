@@ -108,7 +108,7 @@ function initAiMentor() {
         btn.className = 'ai-mentor-btn';
         btn.innerHTML = '🤖 ปรึกษาพี่ตู้เย็น';
         btn.onclick = function() {
-            window.open('URL_GEM_ของอาจารย์', '_blank'); // อย่าลืมแก้ URL ตรงนี้ครับ!
+            window.open('https://gemini.google.com/share/89a2551adc9e', '_blank'); // อย่าลืมแก้ URL ตรงนี้ครับ!
         };
         document.body.appendChild(btn);
     }
