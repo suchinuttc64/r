@@ -123,16 +123,26 @@ button:disabled, .btn:disabled {
 }
 
 .ai-mentor-btn {
-    position: fixed; bottom: 30px; right: 30px;
-    background: #22c55e; color: #000;
-    padding: 15px 25px; border-radius: 50px;
-    cursor: pointer; font-weight: bold;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    z-index: 1000; transition: transform 0.3s;
-    font-family: sans-serif;
+    position: fixed; 
+    bottom: 30px; 
+    right: 30px;
+    width: 70px;  /* ปรับขนาดตามความเหมาะสม */
+    height: 70px;
+    background: #ffffff; /* พื้นหลังสีขาวให้เข้ากับรูป */
+    border-radius: 50%; /* ทำให้ปุ่มกลม */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* เพิ่มเงาให้ดูมีมิติ */
+    z-index: 1000; 
+    transition: transform 0.3s;
+    overflow: hidden; /* กันรูปหลุดกรอบ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.ai-mentor-btn:hover { transform: scale(1.1); }
 
+.ai-mentor-btn:hover { 
+    transform: scale(1.1); 
+}
 /* กล่องแชทลอยตัว */
 .ai-modal {
     display: none; position: fixed; z-index: 2000;
