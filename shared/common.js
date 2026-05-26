@@ -107,7 +107,7 @@ function initAiMentor() {
         const btn = document.createElement('div');
         btn.className = 'ai-mentor-btn';
    //     btn.innerHTML = '🤖 ปรึกษาพี่ตู้เย็น';
-        btn.innerHTML = '<img src="images/fridge-bot.png" alt="พี่ตู้เย็น" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">';
+        btn.innerHTML = '<img src="../images/fridge-bot.png" alt="พี่ตู้เย็น" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">';
         btn.onclick = function() {
             window.open('https://gemini.google.com/share/89a2551adc9e', '_blank'); // อย่าลืมแก้ URL ตรงนี้ครับ!
         };
