@@ -1,1 +1,53 @@
+/* --- Reset & Base --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Inter', sans-serif; 
+    background: radial-gradient(circle at top right, #1e293b, #090d16); 
+    color: #f1f5f9; 
+    min-height: 100vh;
+}
 
+/* --- Layout --- */
+.main-wrapper { display: flex; max-width: 1400px; margin: 0 auto; gap: 2rem; padding: 2rem; }
+.sidebar { width: 250px; flex-shrink: 0; }
+.content-area { flex-grow: 1; }
+
+/* --- Sidebar Menu --- */
+.nav-menu { display: flex; flex-direction: column; gap: 10px; }
+.nav-menu a { 
+    padding: 15px; background: rgba(30, 41, 59, 0.5); 
+    color: #94a3b8; text-decoration: none; border-radius: 12px;
+    transition: 0.3s; border-left: 4px solid transparent;
+}
+.nav-menu a.active, .nav-menu a:hover { 
+    background: rgba(56, 189, 248, 0.1); color: #38bdf8; border-left-color: #38bdf8;
+}
+
+/* --- เดิมของอาจารย์ (ปรับจูนให้เข้ากัน) --- */
+.institutional-header {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    padding: 2.5rem; text-align: center; border-bottom: 3px solid #38bdf8;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.container { 
+    background: rgba(15, 23, 42, 0.8); 
+    backdrop-filter: blur(10px); 
+    border-radius: 2rem; padding: 2rem; border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* --- การ์ดบทเรียนและปุ่ม --- */
+.chapter-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+.chapter-card { 
+    background: #1e293b; padding: 1.5rem; border-radius: 1.5rem;
+    border: 1px solid rgba(56, 189, 248, 0.1); transition: 0.3s;
+}
+.chapter-card:hover { border-color: #38bdf8; transform: translateY(-5px); }
+
+.btn { 
+    background: linear-gradient(90deg, #0288d1, #38bdf8); color: white;
+    padding: 8px 20px; border-radius: 40px; text-decoration: none; display: inline-block;
+}
+
+.progress-bar { background: #334155; height: 10px; border-radius: 10px; overflow: hidden; margin: 10px 0; }
+.progress-fill { background: #38bdf8; height: 100%; width: 0%; }
