@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COOL TECH QUEST - แดชบอร์ดหลัก</title>
+    <link rel="stylesheet" href="shared/style.css">
+    <script src="shared/common.js"></script>
+</head>
+<body>
 
+<header class="institutional-header">
+    <img src="images/fridge-bot.png" alt="Logo" style="width: 50px; margin-right: 15px;">
+    <div>
+        <h1 style="color: white; margin: 0; font-size: 1.5rem;">COOL TECH QUEST</h1>
+        <p style="color: #cbd5e1; margin: 0;">วิทยาลัยเทคนิคอุตรดิตถ์ | แผนกวิชาช่างไฟฟ้ากำลัง</p>
+    </div>
+</header>
+
+<div class="main-wrapper">
+    <aside class="sidebar">
+        <nav class="nav-menu">
+            <a href="index.html" class="active">หน้าหลัก (Dashboard)</a>
+            <a href="#">ประวัติการเรียน</a>
+            <a href="#">ตารางเรียน</a>
+            <a href="#">ติดต่ออาจารย์</a>
+        </nav>
+        <div class="sidebar-mascot">
+            <img src="images/fridge-bot.png" alt="Mascot" style="width: 100px;">
+        </div>
+    </aside>
+    
+    <main class="content-area">
+<div class="container">
+            <h1><img src="images/fridge-bot.png" alt="Logo" style="width: 40px; height: 40px; vertical-align: middle; margin-right: 10px;">
+            COOL TECH QUEST</h1>
+            <p>ระบบการเรียนรู้วิชาเครื่องทำความเย็น | วิทยาลัยเทคนิคอุตรดิตถ์ (สุชิน อิ่มสุขศรี แผนกวิชาช่างไฟฟ้ากำลัง)</p>
+            
+            <div class="stats">
+                <div class="stat-item">คะแนนรวมทั้งหมด: <span id="globalTotalPoints">0</span> / 720</div>
+                <div class="stat-item">หน่วยที่เรียนสำเร็จ: <span id="globalCompletedChapters">0</span> / 9</div>
+                <div class="stat-item">ระดับแรงค์: <span id="globalStarRank">ไม่มีอันดับ</span></div>
+            </div>
+
+            <div class="chapter-grid" id="chapterList"></div>
+        </div>
+        </main>
+</div>
+<script>
+    const chapters = [
+        { id: 1, title: "หลักการของเครื่องทำความเย็นเบื้องต้น", desc: "วิวัฒนาการ นิยาม และระบบการทำความเย็นแบบต่างๆ" },
+        { id: 2, title: "ความรู้เบื้องต้นของระบบทำความเย็น", desc: "อุณหภูมิ ความดัน ความร้อน และการเปลี่ยนสถานะของสาร" },
+        { id: 3, title: "อุปกรณ์หลักของระบบทำความเย็น", desc: "คอมเพรสเซอร์ คอนเดนเซอร์ อีวาพอเรเตอร์ และอุปกรณ์ลดความดัน" },
+        { id: 4, title: "อุปกรณ์ประกอบของระบบทำความเย็น", desc: "ดรายเออร์ ไซต์กลาส แอกคิวมูเลเตอร์ และอุปกรณ์ช่วยประสิทธิภาพ" },
+        { id: 5, title: "อุปกรณ์ไฟฟ้าและควบคุมระบบทำความเย็น", desc: "มอเตอร์ รีเลย์ โอเวอร์โหลด เทอร์โมสตัด และวงจรควบคุมพื้นฐาน" },
+        { id: 6, title: "งานท่อและการเชื่อมต่อ", desc: "ทักษะงานท่อทองแดง การตัด ดัด ขยาย บานแฟลร์ และการเชื่อมประสาน" },
+        { id: 7, title: "การทำสุญญากาศและบรรจุสารทำความเย็น", desc: "การใช้เกจแมนิโฟลด์ เครื่องทำสุญญากาศ และขั้นตอนการเติมสารทำความเย็น" },
+        { id: 8, title: "เครื่องทำความเย็นเชิงพาณิชย์", desc: "โครงสร้างและหลักการทำงานของตู้แช่ ตู้เย็นพาณิชย์ และห้องเย็น" },
+        { id: 9, title: "การซ่อมบำรุงและการแก้ไขปัญหา", desc: "การตรวจเช็ครอยรั่ว การล้างระบบ และการวิเคราะห์หาสาเหตุอาการเสีย" }
+    ];
+
+    function renderDashboard() {
+        const grid = document.getElementById('chapterList');
+        if(!grid) return;
+        grid.innerHTML = '';
+        const scores = getAllScores();
+        
+        chapters.forEach(ch => {
+            const chKey = `chapter${ch.id}`;
+            const chScore = scores[chKey] || {};
+            const total = chScore.total || 0;
+            const maxTotal = 80;
+            const percent = (total / maxTotal) * 100;
+            const completed = chScore.completed || false;
+            
+            const card = document.createElement('div');
+            card.className = 'chapter-card';
+            card.innerHTML = `
+                <h3>📘 หน่วยที่ ${ch.id}</h3>
+                <h4>${ch.title}</h4>
+                <p style="font-size:0.85rem; color:#94a3b8; margin: 0.5rem 0 1rem 0;">${ch.desc}</p>
+                <div class="progress-bar"><div class="progress-fill" style="width: ${percent}%;"></div></div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1rem;">
+                    <span style="font-size:0.9rem;">คะแนน: ${total}/${maxTotal} ${completed ? '✅' : '🔒'}</span>
+                    <a href="chapter${ch.id}.html" class="btn" style="margin-top:0; padding:6px 16px; font-size:0.8rem;">เข้าสู่บทเรียน</a>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    function updateGlobalDashboard() {
+        updateDashboard(); 
+    }
+
+    window.onload = () => {
+        renderDashboard();
+        updateGlobalDashboard();
+    };
+</script>
+</body>
+</html>
