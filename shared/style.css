@@ -172,4 +172,14 @@ iframe { width: 100%; height: 100%; border-radius: 1rem; }
 .institutional-header img {
     mix-blend-mode: multiply; /* คำสั่งนี้จะช่วยกลืนพื้นหลังสีขาวให้โปร่งใสครับ */
 }
+/* ส่วนควบคุมขนาดรูปภาพ (ที่ยังขาดอยู่) */
+.logo-college {
+    height: 50px;      /* ขนาดตราวิทยาลัย */
+    width: auto;
+}
+
+.mascot-fridge {
+    height: 60px;      /* ขนาดพี่ตู้เย็น */
+    width: auto;
+}
 /* ------------------------------------------- */
