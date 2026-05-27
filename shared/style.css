@@ -173,7 +173,7 @@ iframe { width: 100%; height: 100%; border-radius: 1rem; }
 .logo-college {
     height: 50px;      /* ขนาดตราวิทยาลัย */
     width: auto;
-    mix-blend-mode: multiply; /* ถ้าพื้นหลังขาว ใช้ตัวนี้ลบออก */
+  
 }
 
 .mascot-fridge {
