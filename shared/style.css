@@ -172,18 +172,24 @@ iframe { width: 100%; height: 100%; border-radius: 1rem; }
 }
 
 /* ปรับแต่งตัวอักษรให้ดูโปรขึ้น */
+/* ใส่ในไฟล์ style.css เพื่อจัดระเบียบข้อความ */
+.header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 15px; /* เว้นระยะห่างจากโลโก้ */
+}
+
 .header-text h1 {
-    color: #ffffff !important;
-    font-size: 1.6rem !important;
-    letter-spacing: 0.5px;
-    text-transform: uppercase; /* ทำให้ดูทันสมัย */
-    margin: 0;
+    font-size: 1.5rem !important;
+    margin: 0 !important;
+    color: #ffffff !important; /* ให้สีขาวเด่นบนพื้นเข้ม */
 }
 
 .header-text p {
-    color: #94a3b8 !important; /* ใช้สีเทาอ่อนเพื่อให้ตัวอักษรหลักโดดเด่น */
-    font-size: 0.9rem;
-    margin: 0;
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+    color: #94a3b8 !important; /* ใช้สีเทาอ่อนให้ดูหรูหรา */
 }
 
 /* ลบ mix-blend-mode ออก (สำคัญ!) เพื่อให้สีโลโก้ชัดเจน */
