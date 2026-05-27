@@ -162,41 +162,49 @@ iframe { width: 100%; height: 100%; border-radius: 1rem; }
 
 /* --- โค้ดส่วนที่เพิ่มเข้าสู่ไฟล์ CSS เดิม --- */
 /* แทนที่ .institutional-header เดิมด้วยชุดนี้ครับ */
+/* ส่วน Header ใหม่ */
 .institutional-header {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    padding: 1.5rem 2.5rem;
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    padding: 2.5rem 1rem;
     display: flex;
+    justify-content: center;
     align-items: center;
     border-bottom: 3px solid #38bdf8;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    text-align: center;
 }
 
-/* ปรับแต่งตัวอักษรให้ดูโปรขึ้น */
-/* ใส่ในไฟล์ style.css เพื่อจัดระเบียบข้อความ */
-.header-text {
+.header-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin-left: 15px; /* เว้นระยะห่างจากโลโก้ */
+    align-items: center;
+}
+
+.logo-college {
+    height: 100px; /* ขยายโลโก้ให้เด่นขึ้น */
+    width: auto;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.2));
 }
 
 .header-text h1 {
-    font-size: 1.5rem !important;
+    font-size: 2rem !important;
+    color: #ffffff !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     margin: 0 !important;
-    color: #ffffff !important; /* ให้สีขาวเด่นบนพื้นเข้ม */
 }
 
-.header-text p {
-    font-size: 0.9rem !important;
-    margin: 0 !important;
-    color: #94a3b8 !important; /* ใช้สีเทาอ่อนให้ดูหรูหรา */
+.title-primary {
+    font-size: 1.1rem !important;
+    color: #cbd5e1 !important;
+    margin-top: 5px !important;
+    font-weight: 500;
 }
 
-/* ลบ mix-blend-mode ออก (สำคัญ!) เพื่อให้สีโลโก้ชัดเจน */
-.logo-college {
-    height: 60px; /* ขยายให้เด่นขึ้นนิดนึง */
-    width: auto;
-    margin-right: 20px;
-    filter: drop-shadow(0 0 5px rgba(56, 189, 248, 0.3)); /* เพิ่มแสงเรืองรองที่โลโก้ */
+.title-secondary {
+    font-size: 0.95rem !important;
+    color: #94a3b8 !important;
+    margin-top: 2px !important;
 }
 /* ------------------------------------------- */
