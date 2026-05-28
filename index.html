@@ -94,7 +94,38 @@
     window.onload = () => {
         renderDashboard();
         updateGlobalDashboard();
+        
     };
+    // นำโค้ดนี้ไปวางต่อท้ายสุดภายใน <script> เดิม
+    function openAiModal() { document.getElementById('aiChatModal').style.display = 'block'; }
+    function closeAiModal() { document.getElementById('aiChatModal').style.display = 'none'; }
+    function sendChatMessage() {
+        const input = document.getElementById('chatInput');
+        const chatHistory = document.getElementById('chatHistory');
+        if(!input.value.trim()) return;
+        chatHistory.innerHTML += `<div><strong>คุณ:</strong> ${input.value}</div>`;
+        input.value = '';
+        setTimeout(() => {
+            chatHistory.innerHTML += `<div><strong>AI Mentor:</strong> ระบบกำลังประมวลผลคำตอบ...</div>`;
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }, 1000);
+    }
+    <div id="aiChatModal" class="ai-modal">
+    <div class="ai-modal-content">
+        <span class="ai-modal-close" onclick="closeAiModal()">&times;</span>
+        <h3 style="color:#38bdf8">🤖 AI Mentor</h3>
+        <div id="chatHistory" style="flex-grow:1; overflow-y:auto; color:#fff;">
+            <div>AI Mentor: สวัสดีครับ มีอะไรให้ผมช่วยไหมครับ?</div>
+        </div>
+        <div style="display:flex; gap:5px; margin-top:10px;">
+            <input type="text" id="chatInput" style="flex-grow:1; padding:10px; border-radius:5px;">
+            <button onclick="sendChatMessage()">ส่ง</button>
+        </div>
+    </div>
+</div>
+
+<div class="ai-mentor-btn" onclick="openAiModal()">💬</div>
+</body>
 </script>
 </body>
 </html>
