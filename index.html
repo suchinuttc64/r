@@ -9,22 +9,19 @@
 </head>
 <body>
 
-<header class="institutional-header">
-    <div class="header-content">
-        <img src="images/uttc-logo.png" alt="Logo" class="logo-college">
-        <div class="header-text">
-            <h1>COOL TECH QUEST</h1>
-            <p class="title-primary">ระบบการเรียนรู้วิชาเครื่องทำความเย็น</p>
-            <p class="title-secondary">ครูสุชิน อิ่มสุขศรี</p>
-            <p class="title-secondary">แผนกวิชาช่างไฟฟ้ากำลัง วิทยาลัยเทคนิคอุตรดิตถ์</p>
-        </div>
+<<header class="institutional-header">
+    <img src="images/uttc-logo.png" alt="Logo" class="logo-college">
+    <div style="flex-grow: 1; padding: 0 15px;">
+        <h1 style="color: white; margin: 0; font-size: 1.5rem;">COOL TECH QUEST</h1>
+        <p style="color: #cbd5e1; margin: 0;">วิทยาลัยเทคนิคอุตรดิตถ์ | แผนกวิชาช่างไฟฟ้ากำลัง</p>
     </div>
+   
 </header>
 
 <div class="main-wrapper">
     <aside class="sidebar">
         <nav class="nav-menu">
-            <a href="index.html" class="active">หน้าหลัก</a>
+            <a href="index.html" class="active">หน้าหลัก (Dashboard)</a>
             <a href="#">ประวัติการเรียน</a>
             <a href="#">ตารางเรียน</a>
             <a href="#">ติดต่ออาจารย์</a>
@@ -90,17 +87,14 @@
         });
     }
 
-  <div id="aiChatModal" class="ai-modal">
-    <div class="ai-modal-content">
-        <span class="ai-modal-close" onclick="closeAiModal()">&times;</span>
-        <h3 style="color:#38bdf8">🤖 AI Mentor</h3>
-        <div id="chatHistory" style="flex-grow:1; overflow-y:auto; color:#fff;">
-            <div>AI Mentor: สวัสดีครับ มีอะไรให้ผมช่วยไหมครับ?</div>
-        </div>
-        <div style="display:flex; gap:5px; margin-top:10px;">
-            <input type="text" id="chatInput" style="flex-grow:1; padding:10px; border-radius:5px;">
-            <button onclick="sendChatMessage()">ส่ง</button>
-        </div>
-    </div>
-</div>
+    function updateGlobalDashboard() {
+        updateDashboard(); 
+    }
+
+    window.onload = () => {
+        renderDashboard();
+        updateGlobalDashboard();
+    };
+</script>
 </body>
+</html>
