@@ -1,125 +1,191 @@
-/* --- Reset & Base --- */
+/* shared/style.css */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-    font-family: 'Inter', sans-serif; 
-    background: radial-gradient(circle at top right, #1e293b, #090d16); 
-    color: #f1f5f9; 
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+    color: #f1f5f9;
+    padding: 2rem;
     min-height: 100vh;
 }
-
-/* --- Layout --- */
-.main-wrapper { display: flex; max-width: 1400px; margin: 0 auto; gap: 2rem; padding: 2rem; }
-.sidebar { width: 250px; flex-shrink: 0; }
-.content-area { flex-grow: 1; }
-
-/* --- Sidebar Menu --- */
-.nav-menu { display: flex; flex-direction: column; gap: 10px; }
-.nav-menu a { 
-    padding: 15px; background: rgba(30, 41, 59, 0.5); 
-    color: #94a3b8; text-decoration: none; border-radius: 12px;
-    transition: 0.3s; border-left: 4px solid transparent;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #1e293b;
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    border: 1px solid rgba(56, 189, 248, 0.2);
 }
-.nav-menu a.active, .nav-menu a:hover { 
-    background: rgba(56, 189, 248, 0.1); color: #38bdf8; border-left-color: #38bdf8;
+h1, h2, h3 { color: #38bdf8; margin-bottom: 1rem; }
+.step {
+    background: #0f172a;
+    border-left: 6px solid #38bdf8;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
 }
-
-/* --- เดิมของอาจารย์ (ปรับจูนให้เข้ากัน) --- */
-.institutional-header {
-    background: linear-gradient(135deg, #0f172a, #1e293b);
-    padding: 2.5rem; text-align: center; border-bottom: 3px solid #38bdf8;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+button, .btn {
+    background: #0288d1;
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 40px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
 }
+button:hover, .btn:hover { background: #026b9e; }
 
-.container { 
-    background: rgba(15, 23, 42, 0.8); 
-    backdrop-filter: blur(10px); 
-    border-radius: 2rem; padding: 2rem; border: 1px solid rgba(56, 189, 248, 0.2);
-}
-
-/* --- การ์ดบทเรียนและปุ่ม --- */
-.chapter-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-.chapter-card { 
-    background: #1e293b; padding: 1.5rem; border-radius: 1.5rem;
-    border: 1px solid rgba(56, 189, 248, 0.1); transition: 0.3s;
-}
-.chapter-card:hover { border-color: #38bdf8; transform: translateY(-5px); }
-
-.btn { 
-    background: linear-gradient(90deg, #0288d1, #38bdf8); color: white;
-    padding: 8px 20px; border-radius: 40px; text-decoration: none; display: inline-block;
+/* 🛠️ เพิ่มสถานะ Disabled สำหรับปุ่มที่ถูกล็อก */
+button:disabled, .btn:disabled {
+    background-color: #475569 !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+    filter: grayscale(1);
 }
 
-.progress-bar { background: #334155; height: 10px; border-radius: 10px; overflow: hidden; margin: 10px 0; }
-.progress-fill { background: #38bdf8; height: 100%; width: 0%; }
-
-.logo-college {
-    height: 100px;         /* อาจารย์ปรับเลขนี้เพิ่ม/ลดได้ตามชอบ */
-    width: auto;
-    margin-bottom: 15px;
-    filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.4));
-    transition: transform 0.3s ease;
+.progress-bar {
+    background: #334155;
+    border-radius: 10px;
+    height: 12px;
+    width: 100%;
+    margin: 10px 0;
+    overflow: hidden;
+}
+.progress-fill {
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s;
+}
+.chapter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+.chapter-card {
+    background: #0f172a;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.stats {
+    display: flex;
+    gap: 1.5rem;
+    background: #0f172a;
+    padding: 1.2rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(56, 189, 248, 0.1);
+}
+.stat-item {
+    font-weight: 600;
+    color: #cbd5e1;
+}
+.stat-item span {
+    color: #38bdf8;
+    font-size: 1.1rem;
 }
 
-.logo-college:hover {
-    transform: scale(1.05); /* เพิ่มลูกเล่นตอนเอาเมาส์ชี้ */
+/* ==========================================================================
+    🛠️ ส่วนเพิ่มเติมพิเศษโดยอาฉี: ดีไซน์บล็อกสอบปลายภาค (Final Exam Section)
+    ========================================================================== */
+.special-quest {
+    border-left: 6px solid #ef4444; /* ขอบแดงเตือนว่าเป็นเควสระดับบอส */
+    background: rgba(239, 68, 68, 0.02);
 }
-/* --- พี่ตู้เย็น (AI Mentor Button) --- */
+.btn-final {
+    background: #ef4444 !important;
+}
+.btn-final:hover {
+    background: #b91c1c !important;
+}
+.embed-box {
+    background: #0f172a;
+    border: 2px solid #ef4444;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-top: 20px;
+    display: none; /* เริ่มต้นปิดหน้าต่างไว้ก่อน */
+}
+.embed-box iframe {
+    width: 100%;
+    height: 650px;
+    border: none;
+}
+
 .ai-mentor-btn {
     position: fixed; 
     bottom: 30px; 
     right: 30px;
-    width: 70px; 
+    width: 70px;  /* ปรับขนาดตามความเหมาะสม */
     height: 70px;
-    background: #ffffff;
-    border-radius: 50%;
+    background: #ffffff; /* พื้นหลังสีขาวให้เข้ากับรูป */
+    border-radius: 50%; /* ทำให้ปุ่มกลม */
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
-    z-index: 9999; /* ให้ลอยอยู่บนสุดเสมอ */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* เพิ่มเงาให้ดูมีมิติ */
+    z-index: 1000; 
     transition: transform 0.3s;
-    overflow: hidden;
-    border: 3px solid #38bdf8;
+    overflow: hidden; /* กันรูปหลุดกรอบ */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .ai-mentor-btn:hover { 
     transform: scale(1.1); 
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
 }
-
-.ai-mentor-btn img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-/* --- เพิ่มส่วนนี้ต่อท้ายไฟล์ style.css ของอาจารย์ --- */
+/* กล่องแชทลอยตัว */
 .ai-modal {
-    display: none; /* เริ่มต้นให้ซ่อนไว้ */
-    position: fixed; z-index: 99999; left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(9, 13, 22, 0.85);
-    backdrop-filter: blur(10px);
+    display: none; position: fixed; z-index: 2000;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.5);
 }
 .ai-modal-content {
-    background: #0f172a; border: 2px solid #38bdf8;
-    margin: 5% auto; width: 90%; max-width: 500px; height: 65%;
-    border-radius: 1.5rem; position: relative; padding: 20px;
-    display: flex; flex-direction: column;
+    background: #0f172a; margin: 5% auto; padding: 0;
+    width: 90%; max-width: 600px; height: 70%;
+    border-radius: 1rem; position: relative; border: 2px solid #38bdf8;
 }
 .ai-modal-close {
-    position: absolute; right: 20px; top: 10px; font-size: 24px;
-    cursor: pointer; color: #fff;
+    position: absolute; right: 15px; top: 5px;
+    font-size: 25px; cursor: pointer; color: white;
 }
-/* --- ปรับแต่งส่วน Header ของเนื้อหาภายใน Container --- */
-.container h1 {
-    font-size: 2rem;          /* ปรับขนาดหัวข้อหลัก (เลขยิ่งมากยิ่งใหญ่) */
-    color: #38bdf8 !important;  /* สีฟ้า Cyan ตามธีม Cyber */
-    text-align: center;         /* จัดให้อยู่กึ่งกลาง ถ้าอยากได้ชิดซ้ายให้เปลี่ยนเป็น left */
-    margin-bottom: 0.5rem !important;
-    text-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+iframe { width: 100%; height: 100%; border-radius: 1rem; }
+
+/* --- โค้ดส่วนที่เพิ่มเข้าสู่ไฟล์ CSS เดิม --- */
+.institutional-header { background: #1e293b; padding: 1.5rem 2rem; display: flex; align-items: center; border-bottom: 2px solid #38bdf8; }
+.main-wrapper { display: flex; min-height: 100vh; }
+.sidebar { width: 260px; background: #1e293b; padding: 2rem 1rem; border-right: 1px solid #334155; }
+.content-area { flex: 1; padding: 2rem; }
+.nav-menu a { display: block; color: #cbd5e1; padding: 12px 16px; text-decoration: none; border-radius: 8px; margin-bottom: 5px; }
+.nav-menu a:hover { background: #38bdf8; color: white; }
+.sidebar-mascot { text-align: center; margin-top: 50px; }
+
+/* ส่วนควบคุมขนาดรูปภาพ (ที่ยังขาดอยู่) */
+.logo-college {
+    height: 50px;      /* ขนาดตราวิทยาลัย */
+    width: auto;
+  
 }
 
-.container p {
-    font-size: 1.1rem;          /* ขนาดข้อความยินดีต้อนรับ */
-    color: #94a3b8 !important;  /* สีเทาอ่อนให้สบายตา */
-    text-align: center;         /* จัดให้อยู่กึ่งกลาง */
-    margin-bottom: 2rem !important;
+.mascot-fridge {
+    height: 60px;      /* ขนาดพี่ตู้เย็น */
+    width: auto;
 }
+/* จัดให้ Header ยืดหยุ่น */
+.institutional-header {
+    display: flex;
+    align-items: center;
+    background: #1e293b;
+    padding: 10px 20px;
+    border-bottom: 2px solid #38bdf8;
+}
+/* ------------------------------------------- */
