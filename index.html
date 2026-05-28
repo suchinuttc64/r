@@ -9,13 +9,12 @@
 </head>
 <body>
 
-<<header class="institutional-header">
+<header class="institutional-header">
     <img src="images/uttc-logo.png" alt="Logo" class="logo-college">
     <div style="flex-grow: 1; padding: 0 15px;">
         <h1 style="color: white; margin: 0; font-size: 1.5rem;">COOL TECH QUEST</h1>
         <p style="color: #cbd5e1; margin: 0;">วิทยาลัยเทคนิคอุตรดิตถ์ | แผนกวิชาช่างไฟฟ้ากำลัง</p>
     </div>
-   
 </header>
 
 <div class="main-wrapper">
@@ -26,24 +25,40 @@
             <a href="#">ตารางเรียน</a>
             <a href="#">ติดต่ออาจารย์</a>
         </nav>
-     
     </aside>
     
     <main class="content-area">
-<div class="container">
-    <h1 style="margin-bottom: 0;">หน้าหลักของระบบ</h1>
-    <p style="color: #94a3b8; margin-bottom: 20px;">ยินดีต้อนรับสู่แดชบอร์ดการเรียนรู้</p>
-    
-    <div class="stats">
-        <div class="stat-item">คะแนนรวมทั้งหมด: <span id="globalTotalPoints">0</span> / 720</div>
-        <div class="stat-item">หน่วยที่เรียนสำเร็จ: <span id="globalCompletedChapters">0</span> / 9</div>
-        <div class="stat-item">ระดับแรงค์: <span id="globalStarRank">ไม่มีอันดับ</span></div>
-    </div>
+        <div class="container">
+            <h1 style="margin-bottom: 0;">หน้าหลักของระบบ</h1>
+            <p style="color: #94a3b8; margin-bottom: 20px;">ยินดีต้อนรับสู่แดชบอร์ดการเรียนรู้</p>
+            
+            <div class="stats">
+                <div class="stat-item">คะแนนรวมทั้งหมด: <span id="globalTotalPoints">0</span> / 720</div>
+                <div class="stat-item">หน่วยที่เรียนสำเร็จ: <span id="globalCompletedChapters">0</span> / 9</div>
+                <div class="stat-item">ระดับแรงค์: <span id="globalStarRank">ไม่มีอันดับ</span></div>
+            </div>
 
-    <div class="chapter-grid" id="chapterList"></div>
+            <div class="chapter-grid" id="chapterList"></div>
+        </div>
+    </main>
 </div>
-        </main>
+
+<div id="aiChatModal" class="ai-modal">
+    <div class="ai-modal-content">
+        <span class="ai-modal-close" onclick="closeAiModal()">&times;</span>
+        <h3 style="color:#38bdf8; margin-bottom:10px;">🤖 AI Mentor</h3>
+        <div id="chatHistory" style="flex-grow:1; overflow-y:auto; color:#fff; background:rgba(0,0,0,0.2); padding:10px; border-radius:5px;">
+            <div>AI Mentor: สวัสดีครับ มีอะไรให้ผมช่วยไหมครับ?</div>
+        </div>
+        <div style="display:flex; gap:5px; margin-top:10px;">
+            <input type="text" id="chatInput" style="flex-grow:1; padding:10px; border-radius:5px; border:none;" placeholder="พิมพ์ข้อความ...">
+            <button onclick="sendChatMessage()" style="padding:0 20px;">ส่ง</button>
+        </div>
+    </div>
 </div>
+
+<div class="ai-mentor-btn" onclick="openAiModal()">💬</div>
+
 <script>
     const chapters = [
         { id: 1, title: "หลักการของเครื่องทำความเย็นเบื้องต้น", desc: "วิวัฒนาการ นิยาม และระบบการทำความเย็นแบบต่างๆ" },
@@ -61,7 +76,7 @@
         const grid = document.getElementById('chapterList');
         if(!grid) return;
         grid.innerHTML = '';
-        const scores = getAllScores();
+        const scores = typeof getAllScores === 'function' ? getAllScores() : {};
         
         chapters.forEach(ch => {
             const chKey = `chapter${ch.id}`;
@@ -87,16 +102,7 @@
         });
     }
 
-    function updateGlobalDashboard() {
-        updateDashboard(); 
-    }
-
-    window.onload = () => {
-        renderDashboard();
-        updateGlobalDashboard();
-        
-    };
-    // นำโค้ดนี้ไปวางต่อท้ายสุดภายใน <script> เดิม
+    // ฟังก์ชัน AI Mentor
     function openAiModal() { document.getElementById('aiChatModal').style.display = 'block'; }
     function closeAiModal() { document.getElementById('aiChatModal').style.display = 'none'; }
     function sendChatMessage() {
@@ -110,22 +116,11 @@
             chatHistory.scrollTop = chatHistory.scrollHeight;
         }, 1000);
     }
-    <div id="aiChatModal" class="ai-modal">
-    <div class="ai-modal-content">
-        <span class="ai-modal-close" onclick="closeAiModal()">&times;</span>
-        <h3 style="color:#38bdf8">🤖 AI Mentor</h3>
-        <div id="chatHistory" style="flex-grow:1; overflow-y:auto; color:#fff;">
-            <div>AI Mentor: สวัสดีครับ มีอะไรให้ผมช่วยไหมครับ?</div>
-        </div>
-        <div style="display:flex; gap:5px; margin-top:10px;">
-            <input type="text" id="chatInput" style="flex-grow:1; padding:10px; border-radius:5px;">
-            <button onclick="sendChatMessage()">ส่ง</button>
-        </div>
-    </div>
-</div>
 
-<div class="ai-mentor-btn" onclick="openAiModal()">💬</div>
-</body>
+    window.onload = () => {
+        renderDashboard();
+        if(typeof updateDashboard === 'function') updateDashboard();
+    };
 </script>
 </body>
 </html>
