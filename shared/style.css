@@ -90,6 +90,24 @@ body {
     height: 100%;
     object-fit: cover;
 }
+/* --- เพิ่มส่วนนี้ต่อท้ายไฟล์ style.css ของอาจารย์ --- */
+.ai-modal {
+    display: none; /* เริ่มต้นให้ซ่อนไว้ */
+    position: fixed; z-index: 99999; left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(9, 13, 22, 0.85);
+    backdrop-filter: blur(10px);
+}
+.ai-modal-content {
+    background: #0f172a; border: 2px solid #38bdf8;
+    margin: 5% auto; width: 90%; max-width: 500px; height: 65%;
+    border-radius: 1.5rem; position: relative; padding: 20px;
+    display: flex; flex-direction: column;
+}
+.ai-modal-close {
+    position: absolute; right: 20px; top: 10px; font-size: 24px;
+    cursor: pointer; color: #fff;
+}
 /* --- ปรับแต่งส่วน Header ของเนื้อหาภายใน Container --- */
 .container h1 {
     font-size: 2rem;          /* ปรับขนาดหัวข้อหลัก (เลขยิ่งมากยิ่งใหญ่) */
