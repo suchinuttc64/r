@@ -76,7 +76,8 @@
         const grid = document.getElementById('chapterList');
         if(!grid) return;
         grid.innerHTML = '';
-        const scores = typeof getAllScores === 'function' ? getAllScores() : {};
+        // ตรวจสอบว่าฟังก์ชัน getAllScores มีอยู่จริงไหมก่อนเรียกใช้
+        const scores = (typeof getAllScores === 'function') ? getAllScores() : {};
         
         chapters.forEach(ch => {
             const chKey = `chapter${ch.id}`;
@@ -100,21 +101,6 @@
             `;
             grid.appendChild(card);
         });
-    }
-
-    // ฟังก์ชัน AI Mentor
-    function openAiModal() { document.getElementById('aiChatModal').style.display = 'block'; }
-    function closeAiModal() { document.getElementById('aiChatModal').style.display = 'none'; }
-    function sendChatMessage() {
-        const input = document.getElementById('chatInput');
-        const chatHistory = document.getElementById('chatHistory');
-        if(!input.value.trim()) return;
-        chatHistory.innerHTML += `<div><strong>คุณ:</strong> ${input.value}</div>`;
-        input.value = '';
-        setTimeout(() => {
-            chatHistory.innerHTML += `<div><strong>AI Mentor:</strong> ระบบกำลังประมวลผลคำตอบ...</div>`;
-            chatHistory.scrollTop = chatHistory.scrollHeight;
-        }, 1000);
     }
 
     window.onload = () => {
