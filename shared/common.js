@@ -46,37 +46,38 @@ function saveChapterScore(chId, type, score, max) {
 
 // --- 2. ระบบ AI Mentor (ฉีดโค้ดอัตโนมัติ) ---
 function injectAiMentor() {
+    // ป้องกันการสร้างซ้ำ
     if (document.getElementById('aiChatModal')) return;
-// สร้างปุ่มใหม่ที่ดึงรูปจาก images/fridge-logo.jpg
-    const aiBtn = document.createElement('div');
-    aiBtn.className = 'ai-mentor-btn';
-    aiBtn.onclick = () => openAiModal();
-    aiBtn.innerHTML = '<img src="images/fridge-logo.jpg" alt="ถามพี่ตู้เย็น">';
-    document.body.appendChild(aiBtn);
+
+    // สร้าง Modal และปุ่มแชททั้งหมดในคำสั่งเดียว เพื่อความเป็นระเบียบ
     const modalHtml = `
+    <div class="ai-mentor-btn" onclick="openAiModal()">
+        <img src="images/fridge-logo.png" alt="พี่ตู้เย็น" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+
     <div id="aiChatModal" class="ai-modal">
         <div class="ai-modal-content">
             <span class="ai-modal-close" onclick="closeAiModal()">&times;</span>
-           
-<h3 style="color:#38bdf8; margin-bottom:10px; display:flex; align-items:center; gap:10px;">
-    <img src="images/refrig.png" alt="พี่ตู้เย็น" style="width:30px; height:30px; border-radius:5px;"> 
-    ถามพี่ตู้เย็น
-</h3>
+            
+            <h3 style="color:#38bdf8; margin-bottom:10px; display:flex; align-items:center; gap:10px;">
+                <img src="images/refrig.png" alt="พี่ตู้เย็น" style="width:30px; height:30px; border-radius:5px;"> 
+                ถามพี่ตู้เย็น
+            </h3>
+
             <div id="chatHistory" style="flex-grow:1; overflow-y:auto; color:#fff; background:rgba(0,0,0,0.2); padding:10px; border-radius:5px;">
                 <div>พี่ตู้เย็น: สวัสดีครับ! มีปัญหาเรื่องระบบทำความเย็นหรือบทเรียนส่วนไหน ถามพี่ได้เลยนะน้องๆ!</div>
             </div>
+            
             <div style="margin:10px 0;">
                 <button onclick="setPrompt('คอมเพรสเซอร์คืออะไร?')">คอมเพรสเซอร์คืออะไร?</button>
                 <button onclick="setPrompt('การเติมสารทำความเย็น')">การเติมสารทำความเย็น</button>
             </div>
+            
             <div style="display:flex; gap:5px;">
                 <input type="text" id="chatInput" style="flex-grow:1; padding:10px; border-radius:5px;">
                 <button onclick="sendChatMessage()">ส่ง</button>
             </div>
         </div>
-    </div>
-    <div class="ai-mentor-btn" onclick="openAiModal()">
-        <img src="images/fridge-logo.png" alt="พี่ตู้เย็น" style="width:100%; height:100%; border-radius:50%;">
     </div>`;
 
     document.body.insertAdjacentHTML('beforeend', modalHtml);
