@@ -43,22 +43,6 @@
     </main>
 </div>
 
-<div id="aiChatModal" class="ai-modal">
-    <div class="ai-modal-content">
-        <span class="ai-modal-close" onclick="closeAiModal()">&times;</span>
-        <h3 style="color:#38bdf8; margin-bottom:10px;">🤖 ถามพี่ตู้เย็น</h3>
-        <div id="chatHistory" style="flex-grow:1; overflow-y:auto; color:#fff; background:rgba(0,0,0,0.2); padding:10px; border-radius:5px;">
-            <div>พี่ตู้เย็น: มีปัญหาเรื่องระบบทำความเย็นหรือบทเรียนส่วนไหน ถามพี่ตู้เย็นได้เลยนะ เดี๋ยวพี่ช่วยสรุปให้ครับ!</div>
-        </div>
-        <div style="display:flex; gap:5px; margin-top:10px;">
-            <input type="text" id="chatInput" style="flex-grow:1; padding:10px; border-radius:5px; border:none;" placeholder="พิมพ์ข้อความ...">
-            <button onclick="sendChatMessage()" style="padding:0 20px;">ส่ง</button>
-        </div>
-    </div>
-</div>
-
-<div class="ai-mentor-btn" onclick="openAiModal()">💬</div>
-
 <script>
     const chapters = [
         { id: 1, title: "หลักการของเครื่องทำความเย็นเบื้องต้น", desc: "วิวัฒนาการ นิยาม และระบบการทำความเย็นแบบต่างๆ" },
