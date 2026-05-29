@@ -2,195 +2,96 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>COOL TECH QUEST - หน่วยการเรียนรู้อัจฉริยะ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COOL TECH QUEST - แดชบอร์ดหลัก</title>
     <link rel="stylesheet" href="shared/style.css">
-    <script src="shared/common.js"></script>
-    <style>
-        .embed-box { background: #0f172a; border: 2px solid #38bdf8; border-radius: 1rem; overflow: hidden; margin-top: 15px; display: none; }
-        .loading-text { color: #38bdf8; font-style: italic; padding: 20px; text-align: center; }
-        iframe { width: 100%; height: 500px; border: none; }
-        .media-container { margin-bottom: 2rem; background: #1e293b; padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #38bdf8; }
-        .worksheet-box { background: #1e293b; border-left: 6px solid #e11d48; padding: 1.5rem; border-radius: 1rem; margin-top: 1rem; }
-    </style>
+    <script defer src="shared/common.js"></script>
 </head>
 <body>
-<div class="container">
-    <a href="index.html" class="btn" style="background:#475569;">⬅️ กลับแดชบอร์ดหลัก</a>
-    <h1 id="unitTitle">กำลังโหลดหน่วยการเรียนรู้...</h1>
 
-    <div class="step">
-        <h3>📋 1. แบบทดสอบก่อนเรียน (สุ่มอัตโนมัติ 10 ข้อ)</h3>
-        <button onclick="startQuiz('pre')" id="btnPre" class="btn" style="background:#10b981;">🎯 เริ่มสุ่มข้อสอบก่อนเรียน</button>
-        <div id="boxPre" class="embed-box">
-            <div class="loading-text">กำลังเจเนอเรตข้อสอบเฉพาะบุคคล...</div>
-            <iframe id="framePre" src=""></iframe>
-        </div>
+<header class="institutional-header">
+    <img src="images/uttc-logo.png" alt="โลโก้ วิทยาลัยเทคนิคอุตรดิตถ์" class="logo-college" loading="lazy">
+    <div style="flex-grow: 1; padding: 0 15px;">
+        <h1 style="color: white; margin: 0; font-size: 1.5rem;">COOL TECH QUEST</h1>
+        <p style="color: #cbd5e1; margin: 0;">วิทยาลัยเทคนิคอุตรดิตถ์ | แผนกวิชาช่างไฟฟ้ากำลัง</p>
     </div>
+</header>
 
-    <div class="step">
-        <h3>📖 2. สไลด์เนื้อหาบทเรียน และวิดีโออนิเมชั่น</h3>
-        <p style="font-size:0.85rem; color:#94a3b8; margin-bottom:1rem;">คำชี้แจง: เรียนรู้สไลด์มัลติมีเดียและรับชมวิดีโออนิเมชั่นบรรยายเนื้อหาให้ครบถ้วน</p>
-        
-        <div id="mediaListArea"></div>
-        
-        <button onclick="saveStudy()" class="btn" style="width:100%; background:#0288d1;">✅ ยืนยันการเรียนรู้สื่อทั้งหมด (+10 คะแนน)</button>
-    </div>
-
-    <div class="step">
-        <h3>🔧 3. ชุดทดลองซิมูเลชั่นประจำหน่วย (Virtual Lab)</h3>
-        <div class="sim-box" style="background:#022b3a; padding:20px; border-radius:10px; border: 1px dashed #38bdf8; text-align:center;">
-            <h4 id="simTitle" style="color:#38bdf8; margin-bottom:1rem;">ระบบจำลอง</h4>
-            <button onclick="runSim()" class="btn" style="background:#f59e0b;">▶️ รันการจำลองระบบ</button>
-            <p id="simStatus" style="margin-top:10px; color:#94a3b8;">รอการเริ่มทดสอบคำนวณ...</p>
-        </div>
-    </div>
-
-    <div class="step">
-        <h3>📝 4. ใบงานมอบหมายงานปฏิบัติ (Worksheet)</h3>
-        <div class="worksheet-box">
-            <h4 id="worksheetTitle" style="color:#f43f5e;">กำลังโหลดใบงาน...</h4>
-            <p id="worksheetDesc" style="font-size:0.9rem; margin-top:0.5rem; color:#cbd5e1;"></p>
-            <div style="margin-top:15px; display:flex; gap:10px;">
-                <a id="linkDownloadWorksheet" href="#" target="_blank" class="btn" style="background:#2563eb; margin:0; pointer-events:none; opacity:0.5;">📥 ดาวน์โหลดใบงานปฏิบัติ</a>
-                <a href="https://classroom.google.com/" target="_blank" class="btn" style="background:#e11d48; margin:0;">📎 เปิดส่งงานใน Google Classroom</a>
+<div class="main-wrapper">
+    <aside class="sidebar">
+        <nav class="nav-menu">
+            <a href="index.html" class="active">หน้าหลัก (Dashboard)</a>
+            <a href="#">ประวัติการเรียน</a>
+            <a href="#">ตารางเรียน</a>
+            <a href="#">ติดต่ออาจารย์</a>
+        </nav>
+    </aside>
+    
+    <main class="content-area">
+        <div class="container">
+            <h1 style="margin-bottom: 0;">หน้าหลักของระบบ</h1>
+            <p style="color: #94a3b8; margin-bottom: 20px;">ยินดีต้อนรับสู่แดชบอร์ดการเรียนรู้</p>
+            
+            <div class="stats">
+                <div class="stat-item">คะแนนรวมทั้งหมด: <span id="globalTotalPoints">0</span> / 720</div>
+                <div class="stat-item">หน่วยที่เรียนสำเร็จ: <span id="globalCompletedChapters">0</span> / 9</div>
+                <div class="stat-item">ระดับแรงค์: <span id="globalStarRank">ไม่มีอันดับ</span></div>
             </div>
-        </div>
-    </div>
 
-    <div class="step">
-        <h3>📝 5. แบบทดสอบหลังเรียน (สุ่มอัตโนมัติ 10 ข้อ)</h3>
-        <button onclick="startQuiz('post')" id="btnPost" class="btn" style="background:#10b981;" disabled>🎯 เริ่มสุ่มข้อสอบหลังเรียน</button>
-        <div id="boxPost" class="embed-box">
-            <div class="loading-text">กำลังเจเนอเรตข้อสอบเฉพาะบุคคล...</div>
-            <iframe id="framePost" src=""></iframe>
+            <div class="chapter-grid" id="chapterList"></div>
         </div>
-    </div>
-
-    <div class="step" style="border-left-color: #10b981; background: rgba(16,185,129,0.05);">
-        <h3>📊 6. บริหารจัดการฐานคะแนน</h3>
-        <button onclick="exportToSheet()" class="btn" style="background:#10b981; width:100%;">🚀 ส่งออกคะแนนหน่วยนี้ไป Google Sheet</button>
-    </div>
+    </main>
 </div>
 
 <script>
-    const chId = parseInt(window.location.pathname.split('chapter').pop()) || 1;
-    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwKsN4O7IEbvO6TDIo7HCFedGCKG7-k9phIIeMyCAARvjVK2haHeAz5dr8qKQ9P2X-Yxw/exec";
+    const chapters = [
+        { id: 1, title: "หลักการของเครื่องทำความเย็นเบื้องต้น", desc: "วิวัฒนาการ นิยาม และระบบการทำความเย็นแบบต่างๆ" },
+        { id: 2, title: "ความรู้เบื้องต้นของระบบทำความเย็น", desc: "อุณหภูมิ ความดัน ความร้อน และการเปลี่ยนสถานะของสาร" },
+        { id: 3, title: "อุปกรณ์หลักของระบบทำความเย็น", desc: "คอมเพรสเซอร์ คอนเดนเซอร์ อีวาพอเรเตอร์ และอุปกรณ์ลดความดัน" },
+        { id: 4, title: "อุปกรณ์ประกอบของระบบทำความเย็น", desc: "ดรายเออร์ ไซต์กลาส แอกคิวมูเลเตอร์ และอุปกรณ์ช่วยประสิทธิภาพ" },
+        { id: 5, title: "อุปกรณ์ไฟฟ้าและควบคุมระบบทำความเย็น", desc: "มอเตอร์ รีเลย์ โอเวอร์โหลด เทอร์โมสตัด และวงจรควบคุมพื้นฐาน" },
+        { id: 6, title: "งานท่อและการเชื่อมต่อ", desc: "ทักษะงานท่อทองแดง การตัด ดัด ขยาย บานแฟลร์ และการเชื่อมประสาน" },
+        { id: 7, title: "การทำสุญญากาศและบรรจุสารทำความเย็น", desc: "การใช้เกจแมนิโฟลด์ เครื่องทำสุญญากาศ และขั้นตอนการเติมสารทำความเย็น" },
+        { id: 8, title: "เครื่องทำความเย็นเชิงพาณิชย์", desc: "โครงสร้างและหลักการทำงานของตู้แช่ ตู้เย็นพาณิชย์ และห้องเย็น" },
+        { id: 9, title: "การซ่อมบำรุงและการแก้ไขปัญหา", desc: "การตรวจเช็ครอยรั่ว การล้างระบบ และการวิเคราะห์หาสาเหตุอาการเสีย" }
+    ];
 
-    const unitsData = {
-        1: { 
-            title: "หลักการของเครื่องทำความเย็นเบื้องต้น", 
-            mediaList: [
-                { type: "Canva Presentation", url: "https://www.canva.com/design/DAxxxxxx/watch?embed" },
-                { type: "วิดีโอ: วงจรสารทำความเย็นขั้นพื้นฐาน", url: "https://www.youtube.com/embed/dQw4w9WgXcQ" }
-            ],
-            sim: "ซิมูเลชั่นวงจรการทำความเย็นอัดไอเบื้องต้นและทิศทางการไหล",
-            worksheet: "ใบงานที่ 1: การคำนวณค่าสัมประสิทธิ์สมรรถนะ (COP)",
-            worksheetUrl: "https://docs.google.com/document/d/xxxxxx1/edit?usp=sharing",
-            worksheetDesc: "คำสั่ง: ให้นักเรียนดาวน์โหลดใบงานเพื่อทำการบันทึกผลการคำนวณค่าเอนทาลปีที่ได้จากการจำลองสถานการณ์ในซิมูเลชั่นข้อที่ 3"
-        }
-    };
-
-    const currentUnit = unitsData[chId] || unitsData[1];
-    document.getElementById('unitTitle').innerText = `❄️ หน่วยที่ ${chId} : ${currentUnit.title}`;
-    document.getElementById('simTitle').innerText = `🔬 ${currentUnit.sim}`;
-    document.getElementById('worksheetTitle').innerText = currentUnit.worksheet;
-    document.getElementById('worksheetDesc').innerText = currentUnit.worksheetDesc;
-    document.getElementById('linkDownloadWorksheet').href = currentUnit.worksheetUrl;
-
-    const mediaArea = document.getElementById('mediaListArea');
-    currentUnit.mediaList.forEach(media => {
-        const box = document.createElement('div');
-        box.className = 'media-container';
-        box.innerHTML = `
-            <h4 style="color:#38bdf8; margin-bottom:0.8rem;">💻 ${media.type}</h4>
-            <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:0.5rem; background:#0f172a;">
-                <iframe src="${media.url}" style="position:absolute; top:0; left:0; width:100%; height:100%;" allowfullscreen></iframe>
-            </div>
-        `;
-        mediaArea.appendChild(box);
-    });
-
-    window.onload = async function() {
-        try {
-            google.script.run.withSuccessHandler(function(data) {
-                if(data.status === "success") {
-                    document.getElementById('unitTitle').innerText = "หน่วยการเรียนรู้ที่ " + chId + ": " + data.title;
-                    document.getElementById('mediaArea').innerHTML = `
-                        <div class="media-container">
-                            <iframe src="${data.slideUrl}" width="100%" height="400"></iframe>
-                            <iframe src="${data.videoUrl}" width="100%" height="400" style="margin-top:10px;"></iframe>
-                        </div>
-                    `;
-                    document.getElementById('simArea').innerHTML = `<iframe src="${data.simUrl}" width="100%" height="500"></iframe>`;
-                }
-            }).getChapterContent(chId);
-        } catch (err) { console.log("ไม่สามารถดึงข้อมูลอัตโนมัติได้"); }
-
-        // เช็คสถานะปลดล็อก (ถ้าเคยทำ Sim แล้ว)
-        const scores = getAllScores();
-        if(scores[`chapter${chId}`] && scores[`chapter${chId}`].activity > 0) {
-            unlockSteps();
-        }
-    };
-
-    // ฟังก์ชันปลดล็อกปุ่ม
-    function unlockSteps() {
-        document.getElementById('linkDownloadWorksheet').style.pointerEvents = "auto";
-        document.getElementById('linkDownloadWorksheet').style.opacity = "1";
-        document.getElementById('btnPost').disabled = false;
-    }
-
-    async function startQuiz(type) {
-        let studentId = prompt("1/4: กรุณาระบุ [รหัสประจำตัวนักเรียน]:");
-        if (!studentId) return;
-        let studentName = prompt("2/4: กรุณาระบุ [ชื่อ-นามสกุล]:");
-        if (!studentName) return;
-        let studentRoom = prompt("3/4: กรุณาระบุ [ระดับชั้น/ห้อง]:");
-        if (!studentRoom) return;
-        let studentNo = prompt("4/4: กรุณาระบุ [เลขที่]:");
-        if (!studentNo) return;
-
-        // บันทึก Timestamp เริ่มทำข้อสอบ
-        const startTime = new Date().toISOString();
-
-        const btn = type === 'pre' ? document.getElementById('btnPre') : document.getElementById('btnPost');
-        const box = type === 'pre' ? document.getElementById('boxPre') : document.getElementById('boxPost');
-        const frame = type === 'pre' ? document.getElementById('framePre') : document.getElementById('framePost');
+    function renderDashboard() {
+        const grid = document.getElementById('chapterList');
+        if(!grid) return;
+        grid.innerHTML = '';
         
-        btn.innerText = "⏳ ระบบกำลังตรวจสอบ...";
-        btn.disabled = true;
-
-        try {
-            const response = await fetch(`${WEB_APP_URL}?action=getQuiz&chapter=${chId}&id=${encodeURIComponent(studentId)}&name=${encodeURIComponent(studentName)}&room=${encodeURIComponent(studentRoom)}&no=${encodeURIComponent(studentNo)}&type=${type}&startTime=${startTime}`);
-            const data = await response.json();
+        const scores = (typeof getAllScores === 'function') ? getAllScores() : {};
+        
+        chapters.forEach(ch => {
+            const chKey = `chapter${ch.id}`;
+            const chScore = scores[chKey] || {};
+            const total = chScore.total || 0;
+            const maxTotal = 80;
+            const percent = (total / maxTotal) * 100;
+            const completed = chScore.completed || false;
             
-            if(data.status === "success") {
-                frame.src = data.formUrl;
-                box.style.display = "block";
-                btn.innerText = "✅ พร้อมทำข้อสอบ";
-            } else {
-                alert(data.message);
-                btn.disabled = false;
-                btn.innerText = "🎯 เริ่มสุ่มข้อสอบ";
-            }
-        } catch (err) {
-            alert("เชื่อมต่อฐานข้อมูลล่ม");
-            btn.disabled = false;
-        }
+            const card = document.createElement('div');
+            card.className = 'chapter-card';
+            card.innerHTML = `
+                <h3>📘 หน่วยที่ ${ch.id}</h3>
+                <h4>${ch.title}</h4>
+                <p style="font-size:0.85rem; color:#94a3b8; margin: 0.5rem 0 1rem 0;">${ch.desc}</p>
+                <div class="progress-bar"><div class="progress-fill" style="width: ${percent}%;"></div></div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:1rem;">
+                    <span style="font-size:0.9rem;">คะแนน: ${total}/${maxTotal} ${completed ? '✅' : '🔒'}</span>
+                    <a href="chapter${ch.id}.html" class="btn" style="margin-top:0; padding:6px 16px; font-size:0.8rem;">เข้าสู่บทเรียน</a>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
     }
 
-    function runSim() {
-        document.getElementById('simStatus').innerHTML = "<span style='color:#10b981; font-weight:bold;'>⚙️ ซิมูเลชันประมวลผลสำเร็จ!</span>";
-        saveChapterScore(chId, 'activity', 20, 20);
-        unlockSteps(); // ปลดล็อกปุ่ม
-    }
-
-    function saveStudy() {
-        saveChapterScore(chId, 'study', 10, 10);
-        alert("บันทึกเควสสำเร็จ!");
-    }
-
-    function exportToSheet() { alert(`🚀 ยิงฐานคะแนนดิบหน่วยที่ ${chId} ส่งเข้าไปที่ Google Sheet เรียบร้อยครับครูสุชิน!`); }
+    // เมื่อโหลดหน้าเว็บเสร็จ
+    window.onload = () => {
+        renderDashboard();
+        if(typeof updateDashboard === 'function') updateDashboard();
+    };
 </script>
 </body>
 </html>
