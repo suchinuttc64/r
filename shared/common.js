@@ -125,3 +125,33 @@ window.updateDashboard = updateDashboard;
 window.openAiModal = openAiModal;
 window.closeAiModal = closeAiModal;
 window.sendChatMessage = sendChatMessage;
+
+function injectAiMentorElements() {
+    // ป้องกันการสร้างซ้ำ
+    if (document.getElementById('aiChatModal')) return;
+
+    // สร้าง Modal HTML
+    const modalHtml = `
+    <div id="aiChatModal" class="ai-modal">
+        <div class="ai-modal-content">
+            <span class="ai-modal-close" onclick="closeAiModal()">&times;</span>
+            <h3 style="color:#38bdf8; margin-bottom:10px;">🤖 AI Mentor</h3>
+            <div id="chatHistory" style="flex-grow:1; overflow-y:auto; color:#fff; background:rgba(0,0,0,0.2); padding:10px; border-radius:5px;">
+                <div>AI Mentor: สวัสดีครับ มีอะไรให้ผมช่วยไหมครับ?</div>
+            </div>
+            <div style="display:flex; gap:5px; margin-top:10px;">
+                <input type="text" id="chatInput" style="flex-grow:1; padding:10px; border-radius:5px; border:none;" placeholder="พิมพ์ข้อความ...">
+                <button onclick="sendChatMessage()" style="padding:0 20px;">ส่ง</button>
+            </div>
+        </div>
+    </div>
+    <div class="ai-mentor-btn" onclick="openAiModal()">💬</div>`;
+
+    document.body.insertAdjacentHTML('beforeend', modalHtml);
+}
+
+// เรียกใช้ฟังก์ชันนี้ตอนโหลดหน้าเว็บ
+document.addEventListener('DOMContentLoaded', () => {
+    injectAiMentorElements();
+    // ... ส่วนของ initAiMentor และอื่นๆ ที่เคยมีไว้เดิม
+});
