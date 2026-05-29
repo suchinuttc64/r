@@ -57,7 +57,7 @@ function injectAiMentor() {
     <div id="aiChatModal" class="ai-modal">
         <div class="ai-modal-content">
             <span class="ai-modal-close" onclick="closeAiModal()">&times;</span>
-            // เปลี่ยนบรรทัดนี้ในฟังก์ชัน injectAiMentor
+           
 <h3 style="color:#38bdf8; margin-bottom:10px; display:flex; align-items:center; gap:10px;">
     <img src="images/fridge-logo.jpg" alt="พี่ตู้เย็น" style="width:30px; height:30px; border-radius:5px;"> 
     ถามพี่ตู้เย็น
