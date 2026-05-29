@@ -137,7 +137,7 @@ function injectAiMentorElements() {
             <span class="ai-modal-close" onclick="closeAiModal()">&times;</span>
             <h3 style="color:#38bdf8; margin-bottom:10px;">🤖 AI Mentor</h3>
             <div id="chatHistory" style="flex-grow:1; overflow-y:auto; color:#fff; background:rgba(0,0,0,0.2); padding:10px; border-radius:5px;">
-                <div>AI Mentor: สวัสดีครับ มีอะไรให้ผมช่วยไหมครับ?</div>
+                <div>AI Mentor: มีปัญหาเรื่องระบบทำความเย็นหรือบทเรียนส่วนไหน ถามพี่ตู้เย็นได้เลยนะ เดี๋ยวพี่ช่วยสรุปให้ครับ!</div>
             </div>
             <div style="display:flex; gap:5px; margin-top:10px;">
                 <input type="text" id="chatInput" style="flex-grow:1; padding:10px; border-radius:5px; border:none;" placeholder="พิมพ์ข้อความ...">
