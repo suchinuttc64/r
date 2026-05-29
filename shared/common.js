@@ -115,3 +115,50 @@ function initAiMentor() {
 }
 // เรียกใช้เมื่อหน้าเว็บโหลดเสร็จสมบูรณ์
 document.addEventListener('DOMContentLoaded', initAiMentor);
+// Accessibility + modal keyboard handling (เพิ่มใน common.js)
+const aiModal = document.getElementById('aiChatModal');
+const chatInput = document.getElementById('chatInput');
+const aiBtn = document.querySelector('.ai-mentor-btn');
+
+function openAiModal(){
+  if(!aiModal) return;
+  aiModal.style.display = 'flex';
+  aiModal.setAttribute('aria-hidden','false');
+  aiModal.setAttribute('aria-modal','true');
+  // focus input after visible
+  setTimeout(()=> chatInput?.focus(), 120);
+}
+function closeAiModal(){
+  if(!aiModal) return;
+  aiModal.style.display = 'none';
+  aiModal.setAttribute('aria-hidden','true');
+  aiModal.removeAttribute('aria-modal');
+  aiBtn?.focus();
+}
+
+// allow keyboard open/close
+aiBtn?.addEventListener('keydown', (e)=>{
+  if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openAiModal(); }
+});
+document.addEventListener('keydown', (e)=>{
+  if(e.key === 'Escape' && aiModal && aiModal.style.display === 'flex') closeAiModal();
+});
+
+// Make sendChatMessage safer (trim + escape basic HTML)
+function escapeHtml(s){ return s.replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
+function sendChatMessage(){
+  const input = document.getElementById('chatInput');
+  const chatHistory = document.getElementById('chatHistory');
+  if(!input || !chatHistory) return;
+  const text = input.value.trim();
+  if(!text) return;
+  chatHistory.innerHTML += `<div><strong>คุณ:</strong> ${escapeHtml(text)}</div>`;
+  input.value = '';
+  chatHistory.scrollTop = chatHistory.scrollHeight;
+  // placeholder response
+  setTimeout(()=> {
+    chatHistory.innerHTML += `<div><strong>AI Mentor:</strong> ระบบกำลังประมวลผลคำตอบ...</div>`;
+    chatHistory.scrollTop = chatHistory.scrollHeight;
+  }, 700);
+}
+
