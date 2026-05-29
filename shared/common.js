@@ -59,7 +59,7 @@ function injectAiMentor() {
             <span class="ai-modal-close" onclick="closeAiModal()">&times;</span>
            
 <h3 style="color:#38bdf8; margin-bottom:10px; display:flex; align-items:center; gap:10px;">
-    <img src="images/fridge-logo.png" alt="พี่ตู้เย็น" style="width:30px; height:30px; border-radius:5px;"> 
+    <img src="images/refrig.png" alt="พี่ตู้เย็น" style="width:30px; height:30px; border-radius:5px;"> 
     ถามพี่ตู้เย็น
 </h3>
             <div id="chatHistory" style="flex-grow:1; overflow-y:auto; color:#fff; background:rgba(0,0,0,0.2); padding:10px; border-radius:5px;">
