@@ -69,10 +69,32 @@ body {
     padding: 20px; border-radius: 20px; border: 2px solid var(--accent);
     display: flex; flex-direction: column; position: relative;
 }
-.ai-mentor-btn { 
-    position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
-    background: var(--accent); border-radius: 50%; display: flex; align-items: center; 
-    justify-content: center; cursor: pointer; box-shadow: var(--shadow); z-index: 1000; 
+/* AI Floating Button */
+.ai-mentor-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    cursor: pointer;
+    z-index: 9999;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #fff; /* สีพื้นหลังเผื่อรูปโหลดไม่ทัน */
+    border: 3px solid var(--accent);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+.ai-mentor-btn:hover {
+    transform: scale(1.1);
+}
+
+.ai-mentor-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* ตัวนี้สำคัญ: ช่วยให้รูปไม่บิดเบี้ยว */
+    display: block;
 }
 
 /* Desktop Fixes */
