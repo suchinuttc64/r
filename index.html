@@ -107,6 +107,18 @@
         renderDashboard();
         if(typeof updateDashboard === 'function') updateDashboard();
     };
+    // เพิ่มส่วนนี้เข้าไปใน HTML ที่ฉีดผ่าน injectAiMentorElements
+const starterPrompts = `
+    <div style="margin-top:10px; display:flex; flex-wrap:wrap; gap:5px;">
+        <button onclick="setPrompt('พี่ตู้เย็นครับ ช่วยอธิบายการทำงานของคอมเพรสเซอร์ให้หน่อย')">คอมเพรสเซอร์คืออะไร?</button>
+        <button onclick="setPrompt('ขั้นตอนการเติมสารทำความเย็นทำอย่างไร?')">การเติมสารทำความเย็น</button>
+        <button onclick="setPrompt('ตู้เย็นไม่เย็นเกิดจากสาเหตุอะไรได้บ้าง?')">วิเคราะห์อาการเสีย</button>
+    </div>`;
+
+// เพิ่มฟังก์ชันสำหรับปุ่ม
+window.setPrompt = function(text) {
+    document.getElementById('chatInput').value = text;
+};
 </script>
 </body>
 </html>
