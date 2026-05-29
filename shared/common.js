@@ -47,7 +47,12 @@ function saveChapterScore(chId, type, score, max) {
 // --- 2. ระบบ AI Mentor (ฉีดโค้ดอัตโนมัติ) ---
 function injectAiMentor() {
     if (document.getElementById('aiChatModal')) return;
-
+// สร้างปุ่มใหม่ที่ดึงรูปจาก images/fridge-logo.jpg
+    const aiBtn = document.createElement('div');
+    aiBtn.className = 'ai-mentor-btn';
+    aiBtn.onclick = () => openAiModal();
+    aiBtn.innerHTML = '<img src="images/fridge-logo.jpg" alt="ถามพี่ตู้เย็น">';
+    document.body.appendChild(aiBtn);
     const modalHtml = `
     <div id="aiChatModal" class="ai-modal">
         <div class="ai-modal-content">
