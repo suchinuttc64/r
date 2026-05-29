@@ -59,7 +59,7 @@ function injectAiMentor() {
             <span class="ai-modal-close" onclick="closeAiModal()">&times;</span>
             <h3 style="color:#38bdf8; margin-bottom:10px;">🤖 ถามพี่ตู้เย็น</h3>
             <div id="chatHistory" style="flex-grow:1; overflow-y:auto; color:#fff; background:rgba(0,0,0,0.2); padding:10px; border-radius:5px;">
-                <div>พี่ตู้เย็น: สวัสดีครับ! มีปัญหาเรื่องระบบทำความเย็นหรือบทเรียนส่วนไหน ถามผมได้เลยนะ!</div>
+                <div>พี่ตู้เย็น: สวัสดีครับ! มีปัญหาเรื่องระบบทำความเย็นหรือบทเรียนส่วนไหน ถามพี่ได้เลยนะน้องๆ!</div>
             </div>
             <div style="margin:10px 0;">
                 <button onclick="setPrompt('คอมเพรสเซอร์คืออะไร?')">คอมเพรสเซอร์คืออะไร?</button>
