@@ -2,7 +2,7 @@
    shared/common.js - ระบบบันทึกคะแนนและ AI Mentor (เชื่อมต่อ Gemini API)
    ========================================================================== */
 const STORAGE_KEY = 'coolTechScores';
-const API_KEY ='AQ.Ab8RN6K43MQ1URIeglKBSYcQ_fddPcBJ6FovC3iUEdBI0GOHzA'; // <--- ใส่ API Key ของอาจารย์ตรงนี้ครับ
+const API_KEY ='  '; // <--- ใส่ API Key ของอาจารย์ตรงนี้ครับ
 let studyStartTime = Date.now();
 
 // --- 1. ระบบบันทึกคะแนน ---
